@@ -1,0 +1,7 @@
+base   jokuwiki
+author Colin McKinnon
+email  colin.mckinnon@gmail.com
+date   2013-06-17
+name   jokuwiki plugin
+desc   Framework for integrating Javascript in Dokuwiki
+url    http://localhost/jw/
