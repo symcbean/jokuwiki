@@ -49,10 +49,15 @@ The jwHelloWorld example at the start of the USAGE section  will be sent to the 
 
 Not exactly rocket science so far! 
 
+The Javascript from the jwHelloworld plugin will then use this data to render a speech bubble callout on the page.
+
+Note that due to the structure of the Dokuwiki plugin system, jwHelloworld must
+be installed as seperate plugin and is not bundled here - but is available on the same site as Jokuwiki itself.
+
 ## Speed enhancement ##
 
  - Since processing of the content (arguments to the initiator) is deferred, the javascript need not be loaded before the Jokuwiki tag is declared in the html - i.e. script tags can be moved to the bottom, and/or use the defer/async tags or be loaded via AJAX. In short, the page is not blocked loading javascript content.
- - Even without the overhead of jQuery, the amount of content which is different between individual pages is often less than 50% of the data downloaded from the server. Jokuwiki provides hooks to integrate [PJAX](https://github.com/defunkt/jquery-pjax) into templates and thereby reducing the total traffic on page transitions.
+ - Even without the overhead of jQuery, the amount of content which is different between individual pages is often less than 50% of the data downloaded from the server. Jokuwiki provides hooks to integrate [PJAX](https://github.com/defunkt/jquery-pjax) into templates and thereby reducing the total traffic on page transitions. See [startPjax](https://github.com/symcbean/startPjax) for an example implementation.
  - Actually, halving the content size isn't really a //great// performance saving - with HTTP it's all about the latency. But eliminating the need to re-fetch (even from cache), re-parse and re-compile the javascript on each page (along with parsing the CSS) does represent a big performance boost - on a bare installation of Weatherwax on my development machine this saves between 250 and 350 milliseconds per page load.
 
 ## Security Enhancement ##
