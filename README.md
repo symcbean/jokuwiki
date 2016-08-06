@@ -19,20 +19,17 @@ Download the zip file and unzip in the plugins directory or install via the plug
 The example above requires the jwHelloWorld plugin to run. This plugin will be available on the same site where you sourced this package.
 
 The Jokuwiki opening tag has a number of attributes:
-| attribute  | optional/required | e.g.                              |
-|------------|-------------------|-----------------------------------|
-| name       | required          | name='jwPluginName'               | 
-| id         | optional          | id='myHtmlElementId'              | 
-| noscript   | optional          | noscript='JavaScript is disabled' |
-| data       | required          | data='{ "formatting" : "JSON", "wellFormedJSON" : true, "pi" : 3.1415926, "myArray" : [ ] }' | 
+* **name** (required) e.g. `name='jwPluginName'`
+* **id** (optional) e.g. `id='myHtmlElementId'`
+* **data** (required) e.g.  `data='{ "formatting" : "JSON", "wellFormedJSON" : true, "pi" : 3.1415926, "myArray" : [ ] }'`
 
-The attributes //must// be enclosed in //single// quotes. The **name** attribute should reference a Jokuwiki capable plugin and is also the class of the div element created to contain the plugin. The **id** attribute is optional and maps directly to the id of the div element. If it is omitted a unique id will be generated. The **style** attribute allows for the class CSS to be overridden if the site configuration allows for inline HTML. The **noscript** element is written inside noscript tags. If inline HTML is enabled in the config, then the noscript content is sent to the browser as is (i.e. may contain HTML markup). If the configuration does not allow for HTML, then it is filtered by htmlentities.
+The attributes *must* be enclosed in *single* quotes. The **name** attribute should reference a Jokuwiki capable plugin and is also the class of the div element created to contain the plugin. The **id** attribute is optional and maps directly to the id of the div element. If it is omitted a unique id will be generated. The **style** attribute allows for the class CSS to be overridden if the site configuration allows for inline HTML. The **noscript** element is written inside noscript tags. If inline HTML is enabled in the config, then the noscript content is sent to the browser as is (i.e. may contain HTML markup). If the configuration does not allow for HTML, then it is filtered by htmlentities.
 
 The data attribute must contain a valid JSON string. This should not have a propery 'id' at the root level. The id of the containing div is added to the JSON string and the contents passed to the initiator for the javascript.
 
 Additional content may be added between the opening and closing jw tags. This will be parsed by Dokuwiki and hence may contain the usual markup.
 
-The example above will be sent to the browser as:
+The jwHelloWorld example at the start of the USAGE section  will be sent to the browser as:
 ```html
 <div id='greetingDiv'
       class='jwHelloWorld'
